@@ -21,11 +21,11 @@ function Group() {
   
 <br/>
   <br/>
-  <Grid container spacing={4} className={classes.GridContainer}>
-  <Grid item><Card/></Grid>
-  <Grid item><Card/></Grid>
-  <Grid item><Card/></Grid>
-
+   <Grid container spacing={4} className={classes.GridContainer}>
+  <Grid item><Card title='Group 1'/></Grid>
+  <Grid item><Card title='Group 2'/></Grid>
+  <Grid item><Card title='Group 3'/></Grid>
+  
 </Grid>
  </>
   );
