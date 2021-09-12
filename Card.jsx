@@ -1,8 +1,3 @@
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -29,14 +24,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard() {
+export default function SimpleCard(group_name) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-
   return (
     <Card className={classes.root}>
       <CardContent>
-      <h5 class="card-title">Group 1</h5>
+      <h5 class="card-title">{group_name.title}</h5>
         <hr/>
         <p>Group Created on:</p>
         <p>Number of Accounts:</p>
@@ -50,3 +44,5 @@ export default function SimpleCard() {
     </Card>
   );
 }
+
+
