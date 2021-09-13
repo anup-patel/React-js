@@ -60,10 +60,7 @@ export default function SimpleCard(group_name) {
 	onClick={handleOpen}>
 		View Group Details
 	</button>
-  <button type="button" class="btn btn-success"
-	onClick={handleOpen}>
-		Report
-	</button>
+ 
   
 
       <Modal
