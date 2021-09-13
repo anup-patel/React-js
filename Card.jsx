@@ -5,13 +5,58 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ClientModal from './ClientModal'
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Modal from '@material-ui/core/Modal';
-import './mv.css'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Alert from '@material-ui/lab/Alert';
+
+import { withStyles } from '@material-ui/core/styles';
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+    
+  },
+}))(TableCell);
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 700,
+   
+  },
+  row: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+});
 const useStyles = makeStyles({
   root: {
     minWidth: 450,
+  },
+  table: {
+    minWidth: 650,
   },
   bullet: {
     display: 'inline-block',
@@ -26,6 +71,28 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
+let id1=0
+function createData(type, account, currency, balance) {
+  id1+=1
+  return {type, account, currency, balance };
+}
+
+const rows = [
+  createData('Saving', 67498674, 'EU', 1200),
+  createData('Salary', 4656567, 'EU', 1200),
+  createData('Fixed', 9886875, 'EU', 3400),
+  createData('Current', 3424325, 'EU', 5400),
+];
+let id2=0
+function createDataother(total_balance, debit, credit, today,current) {
+  id2+=1
+  return {total_balance, debit, credit, today,current};
+}
+
+const other = [
+  createDataother('11,200', '5%', '10%', '200','800'),
+
+];
 
 export default function SimpleCard(group_name) {
   const classes = useStyles();
@@ -46,7 +113,7 @@ export default function SimpleCard(group_name) {
 
     <Card className={classes.root}>
       <CardContent>
-      <h5 class="card-title">{group_name.title}</h5>
+      <h5 style={{fontSize:'20px',margin:'5px' }}>{group_name.title}</h5>
         <hr/>
         <p>Group Created on: {group_name.created_on}</p>
         <p>Number of Accounts: {group_name.number}</p>
@@ -56,14 +123,14 @@ export default function SimpleCard(group_name) {
       <CardActions>
        
       
-      <button type="button" class="btn btn-primary"
+      <Button variant="contained" color="secondary" style={{backgroundColor:'#0275d8',color:'white' }}
 	onClick={handleOpen}>
 		View
-	</button>
-  <button type="button" class="btn btn-success"
+	</Button>
+  <Button variant="contained" style={{backgroundColor:'#1b5e2d',color:'white' }}
 	onClick={handleOpen}>
 		Report
-	</button>
+	</Button>
   
   
 
@@ -76,101 +143,118 @@ export default function SimpleCard(group_name) {
 		width: '80%',
    
 		margin: 'auto',
-   
+  
 		}}
 	>
 		<div class="card">
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+        <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+  <Button>Services</Button>
+  <Button>Contact</Button>
+  <Button>Help</Button>
+  <Button>Download Report</Button>
+</ButtonGroup>
+        </Toolbar>
+      </AppBar>
+    </div>
+<div>
+<Alert icon={false}  severity="info"  style={{
+		
+    alignItems: 'center',
+    justifyContent: 'center',
+fontSize:'20px',
+borderRadius:'0',
 
   
- 
-  <ul className="navbar-nav">
-    <li className=" active nav-item">
-      <a className="nav-link" href="#"></a>
-    </li>
-
-    <li className=" active nav-item">
-      <a className="nav-link" href="#"></a>
-    </li>
-   
-    
-   
-   
-
-  </ul>
-  <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary">Services</button>
-  <button type="button" class="btn btn-primary">Contact</button>
-  <button type="button" class="btn btn-primary">Help</button>
+		}}>
+<strong>{group_name.title} Accounts</strong>
+</Alert>
   
 </div>
-<button type="button" class="btn btn-warning">Download Report</button>
-</nav>
-<div class="alert alert-primary" role="alert">
-
-<center><h4>{group_name.title} Accounts</h4></center>  
-</div>
-    <table class="table" >
-    <thead>
-      <tr>
-        <th>Account</th>
-        <th>Account Number</th>
-        <th>Currency</th>
-        <th>Account Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Saving</td>
-        <td>879867897</td>
-        <td>{group_name.currency_type}</td>
-        <td>1200</td>
-      </tr>
-      <tr>
-        <td>Saving</td>
-        <td>4878967</td>
-        <td>{group_name.currency_type}</td>
-        <td>1200</td>
-      </tr>
-      <tr>
-        <td>Salary Account</td>
-        <td>44097820</td>
-        <td>{group_name.currency_type}</td>
-        <td>3400</td>
-      </tr>
-      <tr>
-        <td>Fixed Deposit</td>
-        <td>385793857</td>
-        <td>{group_name.currency_type}</td>
-        <td>5400</td>
-      </tr>
-    </tbody>
-  </table>
- 
-  <div class="alert alert-primary" role="alert">
-  <center><strong>Other Information</strong></center>
-</div>
-    <table class="table" >
-    <thead>
-      <tr>
-        <th>Total Balance</th>
-        <th>Debit Interest Rate</th>
-        <th>Credit Interest Rate</th>
-        <th>Today's Settlement</th>
-        <th>Current Settlement</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>11,200</td>
-        <td>5%</td>
-        <td>10%</td>
-        <td>200</td>
-        <td>800</td>
-      </tr>
+<Paper className={classes.root}>
+<TableContainer className={classes.table} component={Paper} style={{
+		borderRadius:'0',
+    alignItems: 'center',
+    align:'center',
+    justifyContent: 'center'}}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <CustomTableCell>Account Type</CustomTableCell>
+            <CustomTableCell align="right">Account Number</CustomTableCell>
+            <CustomTableCell align="right">Currency</CustomTableCell>
+            <CustomTableCell align="right">Account Balance</CustomTableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.id1}>
+              <TableCell component="th" scope="row">
+                {row.type}
+              </TableCell>
+              <TableCell align="right">{row.account}</TableCell>
+              <TableCell align="right">{group_name.currency_type}</TableCell>
+              <TableCell align="right">{row.balance}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Paper>
+   
+    <Alert icon={false} severity="info" style={{
+		
+    alignItems: 'center',
+    justifyContent: 'center',
+fontSize:'16px',
+borderRadius:'0',
+  
+		}}>
+        <strong>Other Information</strong>
+      </Alert>
     
-    </tbody>
-  </table>
+
+
+<TableContainer component={Paper}  style={{
+		
+    alignItems: 'center',
+    justifyContent: 'center',
+  
+borderRadius:'0',
+  
+		}}>
+      <Table className={classes.table} aria-label="simple table" >
+    
+        <TableHead>
+          <TableRow>
+          <CustomTableCell>Total Balance</CustomTableCell>
+            <CustomTableCell align="right">Debit Interest Rate</CustomTableCell>
+            <CustomTableCell align="right">Credit Interest Rate</CustomTableCell>
+            <CustomTableCell align="right">Today's Settlement</CustomTableCell>
+            <CustomTableCell align="right">Current Settlement</CustomTableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {other.map((other) => (
+            <TableRow key={other.id2}>
+              <TableCell component="th" scope="other">
+              {other.total_balance}
+              </TableCell>
+              
+              <TableCell align="right">{other.debit}</TableCell>
+              <TableCell align="right">{other.credit}</TableCell>
+              <TableCell align="right">{other.today}</TableCell>
+              <TableCell align="right">{other.current}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+
     </div>
     
     
@@ -182,5 +266,4 @@ export default function SimpleCard(group_name) {
     
   );
 }
-
 
