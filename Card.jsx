@@ -21,7 +21,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Alert from '@material-ui/lab/Alert';
 
 import { withStyles } from '@material-ui/core/styles';
 const CustomTableCell = withStyles(theme => ({
@@ -160,25 +159,26 @@ export default function SimpleCard(group_name) {
       </AppBar>
     </div>
 <div>
-<Alert icon={false}  severity="info"  style={{
-		
+<div style={{
+		backgroundColor:"#cde7fe",
     alignItems: 'center',
+    padding: '20px',
     justifyContent: 'center',
-fontSize:'20px',
-borderRadius:'0',
-
-  
+    fontSize:'20px',
+    borderRadius:'0',
+    alignItems: 'center',
+    textAlign: 'center',
 		}}>
 <strong>{group_name.title} Accounts</strong>
-</Alert>
+</div>
   
 </div>
 <Paper className={classes.root}>
 <TableContainer className={classes.table} component={Paper} style={{
-		borderRadius:'0',
-    alignItems: 'center',
-    align:'center',
-    justifyContent: 'center'}}>
+		alignItems: 'center',
+    justifyContent: 'center',
+  
+borderRadius:'0',}}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -205,16 +205,18 @@ borderRadius:'0',
     </TableContainer>
     </Paper>
    
-    <Alert icon={false} severity="info" style={{
-		
+    <div style={{
+		backgroundColor:"#cde7fe",
     alignItems: 'center',
+    padding: '15px',
     justifyContent: 'center',
-fontSize:'16px',
-borderRadius:'0',
-  
+    fontSize:'18px',
+    borderRadius:'0',
+    alignItems: 'center',
+    textAlign: 'center',
 		}}>
         <strong>Other Information</strong>
-      </Alert>
+      </div>
     
 
 
