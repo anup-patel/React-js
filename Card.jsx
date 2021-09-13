@@ -86,11 +86,11 @@ export default function SimpleCard(group_name) {
  
   <ul className="navbar-nav">
     <li className=" active nav-item">
-      <a className="nav-link" href="#">Group Details</a>
+      <a className="nav-link" href="#"></a>
     </li>
 
     <li className=" active nav-item">
-      <a className="nav-link" href="#">Other Information</a>
+      <a className="nav-link" href="#"></a>
     </li>
    
     
@@ -98,10 +98,18 @@ export default function SimpleCard(group_name) {
    
 
   </ul>
-  <button class="btn btn-success navbar-btn">Download Report</button>
+  <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary">Services</button>
+  <button type="button" class="btn btn-primary">Contact</button>
+  <button type="button" class="btn btn-primary">Help</button>
+  <button type="button" class="btn btn-warning">Download Report</button>
+</div>
+  
 </nav>
+<div class="alert alert-primary" role="alert">
 
-    <center><h2>{group_name.title} Accounts</h2></center>
+<center><h4>{group_name.title} Accounts</h4></center>  
+</div>
     <table class="table" >
     <thead>
       <tr>
@@ -115,31 +123,33 @@ export default function SimpleCard(group_name) {
       <tr>
         <td>Saving</td>
         <td>879867897</td>
-        <td>EUR</td>
+        <td>{group_name.currency_type}</td>
         <td>1200</td>
       </tr>
       <tr>
         <td>Saving</td>
         <td>4878967</td>
-        <td>INR</td>
+        <td>{group_name.currency_type}</td>
         <td>1200</td>
       </tr>
       <tr>
         <td>Salary Account</td>
         <td>44097820</td>
-        <td>EUR</td>
+        <td>{group_name.currency_type}</td>
         <td>3400</td>
       </tr>
       <tr>
         <td>Fixed Deposit</td>
         <td>385793857</td>
-        <td>EUR</td>
+        <td>{group_name.currency_type}</td>
         <td>5400</td>
       </tr>
     </tbody>
   </table>
-
-  <center><h4>Other Information</h4></center>
+ 
+  <div class="alert alert-primary" role="alert">
+  <center><strong>Other Information</strong></center>
+</div>
     <table class="table" >
     <thead>
       <tr>
