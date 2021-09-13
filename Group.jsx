@@ -22,9 +22,9 @@ function Group() {
 <br/>
   <br/>
    <Grid container spacing={4} className={classes.GridContainer}>
-  <Grid item><Card title='Group 1'/></Grid>
-  <Grid item><Card title='Group 2'/></Grid>
-  <Grid item><Card title='Group 3'/></Grid>
+  <Grid item><Card title='Group 1' number='4' created_on='2021-12-03' /></Grid>
+  <Grid item><Card title='Group 2' number='4' created_on='2021-12-13' /></Grid>
+  <Grid item><Card title='Group 3' number='4' created_on='2021-12-15' /></Grid>
   
 </Grid>
  </>
