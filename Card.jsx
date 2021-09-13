@@ -102,9 +102,9 @@ export default function SimpleCard(group_name) {
   <button type="button" class="btn btn-primary">Services</button>
   <button type="button" class="btn btn-primary">Contact</button>
   <button type="button" class="btn btn-primary">Help</button>
-  <button type="button" class="btn btn-warning">Download Report</button>
-</div>
   
+</div>
+<button type="button" class="btn btn-warning">Download Report</button>
 </nav>
 <div class="alert alert-primary" role="alert">
 
