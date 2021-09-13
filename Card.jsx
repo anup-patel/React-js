@@ -73,7 +73,7 @@ export default function SimpleCard(group_name) {
 		style={{
 		
 	
-		width: 1000,
+		width: '80%',
    
 		margin: 'auto',
    
