@@ -162,9 +162,9 @@ export default function SimpleCard(group_name) {
 <div style={{
 		backgroundColor:"#cde7fe",
     alignItems: 'center',
-    padding: '20px',
+    padding: '15px',
     justifyContent: 'center',
-    fontSize:'20px',
+    fontSize:'18px',
     borderRadius:'0',
     alignItems: 'center',
     textAlign: 'center',
@@ -173,16 +173,16 @@ export default function SimpleCard(group_name) {
 </div>
   
 </div>
-<Paper className={classes.root}>
+
 <TableContainer component={Paper}  style={{
 		
     alignItems: 'center',
     justifyContent: 'center',
-  
+
 borderRadius:'0',
   
 		}}>
-        <Table className={classes.table} aria-label="simple table" style={{
+         <Table className={classes.table} aria-label="simple table" style={{
 		
     alignItems: 'center',
     justifyContent: 'center',
@@ -215,7 +215,7 @@ borderRadius:'0',
         </TableBody>
       </Table>
     </TableContainer>
-    </Paper>
+    
    
     <div style={{
 		backgroundColor:"#cde7fe",
