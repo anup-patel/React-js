@@ -179,25 +179,31 @@ export default function SimpleCard(group_name) {
     justifyContent: 'center',
   
 borderRadius:'0',}}>
-      <Table className={classes.table} aria-label="simple table">
+      <Table aria-label="simple table">
+      <colgroup>
+      <col style={{width:'25%'}}/>
+      <col style={{width:'25%'}}/>
+      <col style={{width:'25%'}}/>
+      <col style={{width:'25%'}}/>
+   </colgroup>
         <TableHead>
           <TableRow>
-            <CustomTableCell>Account Type</CustomTableCell>
-            <CustomTableCell align="right">Account Number</CustomTableCell>
-            <CustomTableCell align="right">Currency</CustomTableCell>
-            <CustomTableCell align="right">Account Balance</CustomTableCell>
+            <CustomTableCell align="center">Account Type</CustomTableCell>
+            <CustomTableCell align="center">Account Number</CustomTableCell>
+            <CustomTableCell align="center">Currency</CustomTableCell>
+            <CustomTableCell align="center">Account Balance</CustomTableCell>
             
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id1}>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" align="center" scope="row">
                 {row.type}
               </TableCell>
-              <TableCell align="right">{row.account}</TableCell>
-              <TableCell align="right">{group_name.currency_type}</TableCell>
-              <TableCell align="right">{row.balance}</TableCell>
+              <TableCell align="center">{row.account}</TableCell>
+              <TableCell align="center">{group_name.currency_type}</TableCell>
+              <TableCell align="center">{row.balance}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -228,29 +234,37 @@ borderRadius:'0',}}>
 borderRadius:'0',
   
 		}}>
-      <Table className={classes.table} aria-label="simple table" >
+      <Table className={classes.table} aria-label="simple table" style={{
+		
+    alignItems: 'center',
+    justifyContent: 'center',
+  
+borderRadius:'0',
+
+  
+		}} >
     
         <TableHead>
           <TableRow>
-          <CustomTableCell>Total Balance</CustomTableCell>
-            <CustomTableCell align="right">Debit Interest Rate</CustomTableCell>
-            <CustomTableCell align="right">Credit Interest Rate</CustomTableCell>
-            <CustomTableCell align="right">Today's Settlement</CustomTableCell>
-            <CustomTableCell align="right">Current Settlement</CustomTableCell>
+          <CustomTableCell align="center">Total Balance</CustomTableCell>
+            <CustomTableCell align="center">Debit Interest Rate</CustomTableCell>
+            <CustomTableCell align="center">Credit Interest Rate</CustomTableCell>
+            <CustomTableCell align="center">Today's Settlement</CustomTableCell>
+            <CustomTableCell align="center">Current Settlement</CustomTableCell>
             
           </TableRow>
         </TableHead>
         <TableBody>
           {other.map((other) => (
             <TableRow key={other.id2}>
-              <TableCell component="th" scope="other">
+              <TableCell component="th" scope="other" align="center">
               {other.total_balance}
               </TableCell>
               
-              <TableCell align="right">{other.debit}</TableCell>
-              <TableCell align="right">{other.credit}</TableCell>
-              <TableCell align="right">{other.today}</TableCell>
-              <TableCell align="right">{other.current}</TableCell>
+              <TableCell align="center">{other.debit}</TableCell>
+              <TableCell align="center">{other.credit}</TableCell>
+              <TableCell align="center">{other.today}</TableCell>
+              <TableCell align="center">{other.current}</TableCell>
             </TableRow>
           ))}
         </TableBody>
