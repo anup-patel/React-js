@@ -41,7 +41,7 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   table: {
-    minWidth: 700,
+    // minWidth: 700,
    
   },
   row: {
@@ -139,7 +139,7 @@ export default function SimpleCard(group_name) {
 		style={{
 		
 	
-		width: '80%',
+		width: '70%',
    
 		margin: 'auto',
   
@@ -174,18 +174,24 @@ export default function SimpleCard(group_name) {
   
 </div>
 <Paper className={classes.root}>
-<TableContainer className={classes.table} component={Paper} style={{
-		alignItems: 'center',
+<TableContainer component={Paper}  style={{
+		
+    alignItems: 'center',
     justifyContent: 'center',
   
-borderRadius:'0',}}>
-      <Table aria-label="simple table">
-      <colgroup>
-      <col style={{width:'25%'}}/>
-      <col style={{width:'25%'}}/>
-      <col style={{width:'25%'}}/>
-      <col style={{width:'25%'}}/>
-   </colgroup>
+borderRadius:'0',
+  
+		}}>
+        <Table className={classes.table} aria-label="simple table" style={{
+		
+    alignItems: 'center',
+    justifyContent: 'center',
+  
+borderRadius:'0',
+
+  
+		}} >
+     
         <TableHead>
           <TableRow>
             <CustomTableCell align="center">Account Type</CustomTableCell>
