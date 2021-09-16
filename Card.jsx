@@ -173,7 +173,11 @@ export default function SimpleCard(group_name) {
 </div>
   
 </div>
-
+<div style={{
+		align:'center',
+   width:'100%',
+    
+		}}>
 <TableContainer component={Paper}  style={{
 		
     alignItems: 'center',
@@ -186,8 +190,10 @@ borderRadius:'0',
 		
     alignItems: 'center',
     justifyContent: 'center',
-  
+  width:'60%',
 borderRadius:'0',
+marginLeft:'20%',
+marginRight:'20%'
 
   
 		}} >
@@ -215,7 +221,7 @@ borderRadius:'0',
         </TableBody>
       </Table>
     </TableContainer>
-    
+    </div>
    
     <div style={{
 		backgroundColor:"#cde7fe",
