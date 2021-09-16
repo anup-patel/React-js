@@ -81,6 +81,7 @@ const rows = [
   createData('Salary', 4656567, 'EU', 1200),
   createData('Fixed', 9886875, 'EU', 3400),
   createData('Current', 3424325, 'EU', 5400),
+  createData('Current', 3424325, 'EU', 5400),
 ];
 let id2=0
 function createDataother(total_balance, debit, credit, today,current) {
@@ -182,18 +183,18 @@ export default function SimpleCard(group_name) {
 		
     alignItems: 'center',
     justifyContent: 'center',
-
+    maxHeight: 200,
 borderRadius:'0',
   
 		}}>
-         <Table className={classes.table} aria-label="simple table" style={{
+         <Table stickyHeader className={classes.table} aria-label="simple table" style={{
 		
     alignItems: 'center',
     justifyContent: 'center',
   width:'60%',
 borderRadius:'0',
 marginLeft:'20%',
-marginRight:'20%'
+marginRight:'20%',
 
   
 		}} >
@@ -232,12 +233,17 @@ marginRight:'20%'
     borderRadius:'0',
     alignItems: 'center',
     textAlign: 'center',
+    
 		}}>
         <strong>Other Information</strong>
       </div>
     
 
-
+      <div style={{
+		align:'center',
+   width:'100%',
+    
+		}}>
 <TableContainer component={Paper}  style={{
 		
     alignItems: 'center',
@@ -246,12 +252,14 @@ marginRight:'20%'
 borderRadius:'0',
   
 		}}>
-      <Table className={classes.table} aria-label="simple table" style={{
+     <Table stickyHeader className={classes.table} aria-label="simple table" style={{
 		
     alignItems: 'center',
     justifyContent: 'center',
-  
+  width:'50%',
 borderRadius:'0',
+marginLeft:'20%',
+marginRight:'20%'
 
   
 		}} >
@@ -282,7 +290,7 @@ borderRadius:'0',
         </TableBody>
       </Table>
     </TableContainer>
-
+</div>
     </div>
     
     
