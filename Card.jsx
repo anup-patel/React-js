@@ -41,7 +41,7 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   table: {
-    // minWidth: 700,
+    minWidth: 700,
    
   },
   row: {
@@ -110,94 +110,82 @@ export default function SimpleCard(group_name) {
   
   return (
    
-
+    // Starting Box Creation -- Comment
     <Card className={classes.root}>
       <CardContent>
-      <h5 style={{fontSize:'20px',margin:'5px' }}>{group_name.title}</h5>
-        <hr/>
-        <p>Group Created on: {group_name.created_on}</p>
-        <p>Number of Accounts: {group_name.number}</p>
-        <p class="card-text">Click View to go on Group Details</p>
-        
+          <h5 style={{fontSize:'20px',margin:'5px' }}>{group_name.title}</h5>
+          <hr/>
+          <p>Group Created on: {group_name.created_on}</p>
+          <p>Number of Accounts: {group_name.number}</p>
+          <p class="card-text">Click View to go on Group Details</p>
       </CardContent>
-      <CardActions>
+    <CardActions>
        
       
-      <Button variant="contained" color="secondary" style={{backgroundColor:'#0275d8',color:'white' }}
-	onClick={handleOpen}>
-		View
-	</Button>
+  <Button variant="contained" color="secondary" style={{backgroundColor:'#0275d8',color:'white' }}
+	onClick={handleOpen}> View </Button>
   <Button variant="contained" style={{backgroundColor:'#1b5e2d',color:'white' }}
-	onClick={handleOpen}>
-		Report
-	</Button>
+	onClick={handleOpen}> Report </Button>
   
-  
-
-      <Modal
-		onClose={handleClose}
-		open={open}
-		style={{
+    <Modal
+              onClose={handleClose}
+              open={open}
+              style={{ width: '70%', margin: 'auto',	}}
+    >
 		
-	
-		width: '70%',
-   
-		margin: 'auto',
-  
-		}}
-	>
-		<div class="card">
-    <div className={classes.root}>
-      <AppBar position="static">
+    
+    
+      <div class="card">
+        <div className={classes.root}>
+
+      {/* Menu Bar Creation       */}
+        <AppBar position="static">
         <Toolbar>
         <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-  <Button>Services</Button>
-  <Button>Contact</Button>
-  <Button>Help</Button>
-  <Button>Download Report</Button>
-</ButtonGroup>
+            <Button>Services</Button>
+            <Button>Contact</Button>
+            <Button>Help</Button>
+            <Button>Download Report</Button>
+        </ButtonGroup>
         </Toolbar>
-      </AppBar>
-    </div>
-<div>
-<div style={{
-		backgroundColor:"#cde7fe",
-    alignItems: 'center',
-    padding: '15px',
-    justifyContent: 'center',
-    fontSize:'18px',
-    borderRadius:'0',
-    alignItems: 'center',
-    textAlign: 'center',
-		}}>
-<strong>{group_name.title} Accounts</strong>
-</div>
-  
-</div>
-<div style={{
-		align:'center',
-   width:'100%',
+        </AppBar>
+        </div>
+        
     
-		}}>
-<TableContainer component={Paper}  style={{
-		
-    alignItems: 'center',
-    justifyContent: 'center',
-    maxHeight: 200,
-borderRadius:'0',
-  
-		}}>
-         <Table stickyHeader className={classes.table} aria-label="simple table" style={{
-		
-    alignItems: 'center',
-    justifyContent: 'center',
-  width:'60%',
-borderRadius:'0',
-marginLeft:'20%',
-marginRight:'20%',
+    {/* Group Heading -- Comment */}
+    <div style={{
+        backgroundColor:"white",
+        alignItems: 'center',
+        padding: '15px',
+        justifyContent: 'center',
+        fontSize:'18px',
+        borderRadius:'0',
+        alignItems: 'center',
+        textAlign: 'center',
+        }}>
+
+
+        <strong>{group_name.title} Accounts</strong>
+
 
   
-		}} >
+    </div>
+
+{/* Table 1 Creation -- Comment */}
+<div style={{align:'center',width:'100%'}}>
+
+<TableContainer component={Paper}  style={{align:'center',alignItems: 'center',borderRadius:'0px',
+    justifyContent: 'center' }}>
+  {/* Div box For Scroll bar -- comment */}
+  <div style={{width:'90%',display:'block',height:'200px',overflowY:'auto',margin:'auto'}}>   
+  <Table stickyHeader className={classes.table} aria-label="simple table" style={{
+  width:'90%',
+borderRadius:'0',
+marginLeft:'5%',
+MarginRight:'5%',
+
+  
+    }}>
      
         <TableHead>
           <TableRow>
@@ -205,9 +193,9 @@ marginRight:'20%',
             <CustomTableCell align="center">Account Number</CustomTableCell>
             <CustomTableCell align="center">Currency</CustomTableCell>
             <CustomTableCell align="center">Account Balance</CustomTableCell>
-            
           </TableRow>
         </TableHead>
+
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id1}>
@@ -220,49 +208,47 @@ marginRight:'20%',
             </TableRow>
           ))}
         </TableBody>
+       
       </Table>
+      </div>
     </TableContainer>
     </div>
+
+    {/* Other Information Heading -- Comment */}
    
     <div style={{
-		backgroundColor:"#cde7fe",
-    alignItems: 'center',
-    padding: '15px',
-    justifyContent: 'center',
-    fontSize:'18px',
-    borderRadius:'0',
-    alignItems: 'center',
-    textAlign: 'center',
+                  backgroundColor:"white",
+                  alignItems: 'center',
+                  padding: '15px',
+                  justifyContent: 'center',
+                  fontSize:'18px',
+                  borderRadius:'0',
+                  alignItems: 'center',
+                  textAlign: 'center',
+    }}>
+        
+        <strong style={{marginTop:'5px' }}>Other Information</strong>
+    </div>
     
-		}}>
-        <strong>Other Information</strong>
-      </div>
-    
-
-      <div style={{
+{/* Table 2 Creation --- Comment */}
+  <div style={{
 		align:'center',
-   width:'100%',
-    
-		}}>
-<TableContainer component={Paper}  style={{
-		
-    alignItems: 'center',
-    justifyContent: 'center',
-  
-borderRadius:'0',
-  
-		}}>
-     <Table stickyHeader className={classes.table} aria-label="simple table" style={{
-		
-    alignItems: 'center',
-    justifyContent: 'center',
-  width:'50%',
-borderRadius:'0',
-marginLeft:'20%',
-marginRight:'20%'
+    width:'100%',
+  }}>
 
-  
-		}} >
+<TableContainer component={Paper}  style={{align:'center',alignItems: 'center',borderRadius:'0px',
+    justifyContent: 'center' }}>
+{/* Div box For Scroll bar -- comment */}
+<div style={{width:'90%',display:'block',height:'200px',overflowY:'auto',margin:'auto'}}>   
+<Table stickyHeader className={classes.table} aria-label="simple table" style={{
+                                                                                alignItems: 'center',
+                                                                                justifyContent: 'center',
+                                                                                width:'90%',
+                                                                              borderRadius:'0px',
+                                                                              marginLeft:'5%',
+                                                                              marginRight:'5%',
+                                                                            
+                                                                              }} >
     
         <TableHead>
           <TableRow>
@@ -270,8 +256,7 @@ marginRight:'20%'
             <CustomTableCell align="center">Debit Interest Rate</CustomTableCell>
             <CustomTableCell align="center">Credit Interest Rate</CustomTableCell>
             <CustomTableCell align="center">Today's Settlement</CustomTableCell>
-            <CustomTableCell align="center">Current Settlement</CustomTableCell>
-            
+            <CustomTableCell align="center">Current Settlement</CustomTableCell> 
           </TableRow>
         </TableHead>
         <TableBody>
@@ -289,17 +274,18 @@ marginRight:'20%'
           ))}
         </TableBody>
       </Table>
+      </div>
     </TableContainer>
 </div>
-    </div>
+    </div> 
+{/* dIV BOX Closes Here */}
     
-    
+
+ 
 	</Modal>
-    
-      </CardActions>
-    </Card>
+</CardActions>
+</Card>
     
     
   );
 }
-
